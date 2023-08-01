@@ -1,0 +1,13 @@
+{% extends "layout.html"%}
+{% block content %}
+
+    <form method="POST" action=""> # post the info submitted to the same route
+        <!--when accessing variables in a template it has to be in {{}}
+        accessing the form instance we created in the app.py and calling the hidden_tag() function
+        will generate a hidden input field with a CSRF token, which is used to protect against CSRF-->
+        {{form.hidden_tag()}}
+        
+
+    </form>
+
+{%endblock content%}
