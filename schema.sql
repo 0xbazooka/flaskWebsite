@@ -2,7 +2,7 @@
 CREATE TABLE users (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    user_name TEXT UNIQUE NOT NULL,
+    username TEXT UNIQUE NOT NULL,
     password TEXT NOT NULL,
     email TEXT UNIQUE NOT NULL,
     balance INTEGER NOT NULL
@@ -21,7 +21,7 @@ CREATE TABLE comments (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     product_id INTEGER NOT NULL,
-    user_name TEXT NOT NULL DEFAULT 'Anonymous',
+    username TEXT NOT NULL DEFAULT 'Anonymous',
     content TEXT NOT NULL,
     FOREIGN KEY (product_id) REFERENCES products(id)
 );
