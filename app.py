@@ -44,27 +44,10 @@ def register():
 def login():
     form = LoginForm()
     if form.validate_on_submit():
-        # Check if user exists in the database and password is correct
-        conn = sqlite3.connect('database.db')
-        c = conn.cursor()
-
-        username = form.username.data
-        password = form.password.data
-
-        c.execute("SELECT * FROM users WHERE user_name = ?", (username,))
-        user = c.fetchone()
-
-        if user and check_password_hash(user[2], password):
-            # User exists and password is correct, log them in
-            user_obj = User(user[0], user[1], user[2])
-            login_user(user_obj)
-            flash('Logged in successfully.')
-            return redirect(url_for('home'))
-        else:
-            # User does not exist or password is incorrect
-            flash('Invalid username or password.')
-
-    return render_template('login.html', title='Login', form=form)
+        # Process login data here (e.g., authenticate user)
+        # For demo purposes, we are redirecting to a simple success page.
+        return redirect(url_for('home'))
+    return render_template('login.html', form=form)
 
 
 @app.route('/')
